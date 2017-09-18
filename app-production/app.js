@@ -7417,10 +7417,10 @@
                 swipeout: !0,
                 swipeoutNoFollow: !1,
                 smartSelectBackTemplate: '<div class="left sliding"><a href="#" class="back link"><i class="icon icon-back"></i><span>{{backText}}</span></a></div>',
-                smartSelectBackText: "Back",
+                smartSelectBackText: "Voltar",
                 smartSelectInPopup: !1,
                 smartSelectPopupCloseTemplate: '<div class="left"><a href="#" class="link close-popup"><i class="icon icon-back"></i><span>{{closeText}}</span></a></div>',
-                smartSelectPopupCloseText: "Close",
+                smartSelectPopupCloseText: "Fechar",
                 smartSelectSearchbar: !1,
                 smartSelectBackOnSelect: !1,
                 searchbarHideDividers: !0,
@@ -9999,7 +9999,7 @@
                         toolbar: !0,
                         theme: "light",
                         swipeToClose: !0,
-                        backLinkText: "Close",
+                        backLinkText: "Fechar",
                         ofText: "of",
                         loop: !1,
                         lazyLoading: !1,
@@ -11136,10 +11136,10 @@
         var t = '<div class="navbar">\n \n  <div class="navbar-inner">\n    \n  </div>\n</div>\n<div class="pages">\n    <!-- Page, data-page contains page name-->\n    <div data-page="" class="page">\n    \n    </div>\n</div>\n';
         return can.mustache(t)
     }), define("mtemplate!canjsfm7-plugin/pagenavbar.mustache", ["can/view/mustache"], function(e) {
-        var t = '{{#if showBackLink}}\n <div class="left sliding" style="">\n   <a href="#" class="back link">\n      <span>Back</span></a>\n </div>\n{{/if}}\n\n<div class="center sliding" style="">{{title}}</div>\n\n<div class="right">\n  <a href="#" class="open-login link icon-only"></a>\n</div>';
+        var t = '{{#if showBackLink}}\n <div class="left sliding" style="">\n   <a href="#" class="back link">\n      <span>Voltar</span></a>\n </div>\n{{/if}}\n\n<div class="center sliding" style="">{{title}}</div>\n\n<div class="right">\n  <a href="#" class="open-login link icon-only"></a>\n</div>';
         return can.mustache(t)
     }), define("mtemplate!canjsfm7-plugin/popupnavbar.mustache", ["can/view/mustache"], function(e) {
-        var t = '\n\n<div class="center sliding" style="">{{title}}</div>\n\n<div class="right">\n <a href="#" class="link close-popup">Close</a>\n</div>';
+        var t = '\n\n<div class="center sliding" style="">{{title}}</div>\n\n<div class="right">\n <a href="#" class="link close-popup">Fechar</a>\n</div>';
         return can.mustache(t)
     }), define("canjsfm7-plugin/plugin", ["framework7", "jquery", "mtemplate!canjsfm7-plugin/pagebase.mustache", "mtemplate!canjsfm7-plugin/pagenavbar.mustache", "mtemplate!canjsfm7-plugin/popupnavbar.mustache"], function(e, t, n, r, i) {
         Framework7.prototype.plugins.canjsPlugin = function(e, s) {
@@ -11196,7 +11196,7 @@
         var t = '<div class="list-block media-list issue-list" >\n<div class="list-group">\n\n  <ul>\n  {{#each statusMap}}\n   <li class="h2">{{statusText @key}}</li>\n   \n    \n    \n    {{#each .}}\n     <li  class="issue">\n       <a href="#" class="item-link" {{data \'model\'}}>\n         <div class="item-content">\n            <div class="item-inner">\n              <div class="item-title-row">\n                <div class="item-title title">{{title}}</div>\n             </div>\n              <div class="description">{{description}}</div>\n            </div>\n          </div>\n        </a>\n      </li>\n   {{/each}}\n   \n  {{/each}}\n </ul>\n</div>\n</div>';
         return can.mustache(t)
     }), define("mtemplate!app/pages/listpage/pagenavbar.html", ["can/view/mustache"], function(e) {
-        var t = '\n\n\n<div class="center sliding" style="">Gerenciamento de Tarefas</div>\n\n\n<div class="right contact-edit-link">\n <a href="#" class="icon-only" id="create-new">\n    New\n </a>\n</div>';
+        var t = '\n\n\n<div class="center sliding" style="">Gerenciamento de Tarefas</div>\n\n\n<div class="right contact-edit-link">\n <a href="#" class="icon-only" id="create-new">\n    +\n </a>\n</div>';
         return can.mustache(t)
     }), define("canjs-commons/functions", ["jquery", "can"], function(e, t) {
         var n = {
@@ -11313,7 +11313,7 @@
         var t = '\n    <div class="list-block issue-content">\n      <ul>\n        <li class="item-content">\n          <div class="item-inner title">\n            {{issue.title}}\n          </div>\n        </li>\n        <li class="item-content">\n          <div class="item-inner description">\n            {{issue.description}}\n          </div>\n        </li>\n       \n        <li>\n     <div class="item-content ">\n     \n        <div class="item-inner status">\n       <div class="item-title label">{{statusText issue.status}} </div>\n        <div class="item-input">\n          {{#if issue.nextStatus}}\n          <a class="button" id="move-to-next-status">Alterar Status para {{statusText issue.nextStatus}}</a>\n          {{/if}}\n       </div>\n        </div>\n      </div>\n    </li>\n      </ul>\n    </div>\n  \n  \n  \n  \n  \n  \n  <h2>Comentários</h2>\n \n  {{#each issue.comments}}\n  <div class="content-block comment">\n   <div class="title date">{{dateformat date}}</div>\n   <div class="text description">{{text}}</div>\n  </div>\n  {{/each}}\n {{#unless issue.comments.length}}\n <div class="content-block comment">\n   <div class="text description">Sem Comentários!</div>\n </div>\n  {{/unless}}\n\n <div class="content-block list-block">\n  \n  \n  \n  <textarea class="description new-comment" placeholder="Comentar" can-value="newComment.text"></textarea>\n  \n  <div class="row">\n   <div class="col-75"></div>\n    <div class="col-25">\n      <a class="button" id="post-comment">Publicar</a>\n    </div>\n  </div>\n         \n         \n         \n\n</div>\n';
         return can.mustache(t)
     }), define("mtemplate!app/pages/issuepage/pagenavbar.html", ["can/view/mustache"], function(e) {
-        var t = '<div class="left sliding" style="">\n <a href="#" class="back link">\n    <span>Back</span></a>\n</div>\n\n\n<div class="center sliding" style=""></div>\n\n<div class="right contact-edit-link">\n <a href="#" class="icon-only" id="edit">\n    Edit\n  </a>\n</div>';
+        var t = '<div class="left sliding" style="">\n <a href="#" class="back link">\n    <span>Voltar</span></a>\n</div>\n\n\n<div class="center sliding" style=""></div>\n\n<div class="right contact-edit-link">\n <a href="#" class="icon-only" id="edit">\n    Editar\n  </a>\n</div>';
         return can.mustache(t)
     }), define("app/pages/issuepage/issuepage", ["mtemplate!app/pages/issuepage/issuepage.html", "mtemplate!app/pages/issuepage/pagenavbar.html", "basecontroller"], function(e, t, n) {
         n.extend("Page.IssuePage", {}, {
@@ -11341,16 +11341,16 @@
             }
         })
     }), define("mtemplate!app/pages/editissuepage/editissuepage.html", ["can/view/mustache"], function(e) {
-        var t = '    <div class="list-block issue-content">\n      <ul>\n       <li class="item-content">\n          <div class="item-inner title">\n            <input type="text" class="title" placeholder="Title" can-value="issue.title">\n          </div>\n        </li>\n        <li class="item-content">\n          <div class="item-inner description">\n            <textarea class="description" placeholder="Description" can-value="issue.description"></textarea>\n \n          </div>\n        </li>\n       \n        <li>\n      <div class="item-content ">\n     \n        <div class="item-inner status">\n       <div class="item-title label">Status</div>\n        <div class="item-input">\n          <select can-value="issue.status">\n   \n            <option value="todo">{{statusText "todo"}}</option>\n           <option value="inprogress">{{statusText "inprogress"}}</option>\n           <option value="done">{{statusText "done"}}</option>\n         \n          </select>\n       </div>\n        </div>\n      </div>\n    </li>\n      </ul>\n    </div>\n\n\n\n\n<div class="content-block">\n <div class="row">\n   <div class="col-50"><a href="#" id="cancel" class="button button-big">Cancel</a></div>\n    <div class="col-50"><a href="#" id="save" class="button button-big button-fill">Save</a></div>\n\n  </div>\n\n</div>\n\n</div>';
+        var t = '    <div class="list-block issue-content">\n      <ul>\n       <li class="item-content">\n          <div class="item-inner title">\n            <input type="text" class="title" placeholder="Titulo" can-value="issue.title">\n          </div>\n        </li>\n        <li class="item-content">\n          <div class="item-inner description">\n            <textarea class="description" placeholder="Descrição" can-value="issue.description"></textarea>\n \n          </div>\n        </li>\n       \n        <li>\n      <div class="item-content ">\n     \n        <div class="item-inner status">\n       <div class="item-title label">Status</div>\n        <div class="item-input">\n          <select can-value="issue.status">\n   \n            <option value="todo">{{statusText "todo"}}</option>\n           <option value="inprogress">{{statusText "inprogress"}}</option>\n           <option value="done">{{statusText "done"}}</option>\n         \n          </select>\n       </div>\n        </div>\n      </div>\n    </li>\n      </ul>\n    </div>\n\n\n\n\n<div class="content-block">\n <div class="row">\n   <div class="col-50"><a href="#" id="cancel" class="button button-big">Cancelar</a></div>\n    <div class="col-50"><a href="#" id="save" class="button button-big button-fill">Salvar</a></div>\n\n  </div>\n\n</div>\n\n</div>';
         return can.mustache(t)
     }), define("mtemplate!app/pages/editissuepage/pagenavbar.html", ["can/view/mustache"], function(e) {
-        var t = '\n\n\n<div class="center sliding" style="">{{navbarTitle}}</div>\n\n<div class="right contact-edit-link">\n  <a href="#" class="link close-popup">Close</a>\n</div>';
+        var t = '\n\n\n<div class="center sliding" style="">{{navbarTitle}}</div>\n\n<div class="right contact-edit-link">\n  <a href="#" class="link close-popup">Fechar</a>\n</div>';
         return can.mustache(t)
     }), define("app/pages/editissuepage/editissuepage", ["mtemplate!app/pages/editissuepage/editissuepage.html", "mtemplate!app/pages/editissuepage/pagenavbar.html", "basecontroller"], function(e, t, n) {
         n.extend("Page.EditIssuePage", {}, {
             template: e,
             preRender: function(e) {
-                e.issue == null ? (e.attr("issue", new Model.Issue), e.attr("navbarTitle", "Create Issue")) : e.attr("navbarTitle", "Edit Issue")
+                e.issue == null ? (e.attr("issue", new Model.Issue), e.attr("navbarTitle", "Criar Tarefa")) : e.attr("navbarTitle", "Edit Issue")
             },
             renderNavbar: function(e) {
                 var n = this,
@@ -11703,7 +11703,7 @@
             },
             t = e([{
                 title: "Testando cadastro de atividades",
-                description: "Test the app on chrome in Android",
+                description: "testeeee",
                 status: "todo"
             }, {
                 title: "Insirindo Tarefas Andamento",
