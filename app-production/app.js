@@ -11350,7 +11350,7 @@
         n.extend("Page.EditIssuePage", {}, {
             template: e,
             preRender: function(e) {
-                e.issue == null ? (e.attr("issue", new Model.Issue), e.attr("navbarTitle", "Criar Tarefa")) : e.attr("navbarTitle", "Edit Issue")
+                e.issue == null ? (e.attr("issue", new Model.Issue), e.attr("navbarTitle", "Criar Tarefa")) : e.attr("navbarTitle", "Editar Tarefa")
             },
             renderNavbar: function(e) {
                 var n = this,
