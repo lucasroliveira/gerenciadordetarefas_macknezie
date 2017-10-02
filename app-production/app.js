@@ -11742,3 +11742,63 @@
                         };
                         FM7App.openPage(App.mainView, n)
                     },
+                    openPopup: function(e, t) {
+                        var n;
+                        if (typeof e == "object") var n = e;
+                        else n = {
+                            pageController: e,
+                            options: t
+                        };
+                        FM7App.openPopup(App.popupView, n)
+                    },
+                    mainView: FM7App.addView(".view-main", {
+                        dynamicNavbar: !0,
+                        domCache: !0
+                    }),
+                    popupView: FM7App.addView(".popup > .view", {
+                        dynamicNavbar: !0,
+                        domCache: !0
+                    })
+                }, App.mainView.history = [], App.openPage({
+                    pageController: Page.ListPage,
+                    options: {},
+                    animatePages: !1,
+                    showBackLink: !1
+                })
+            },
+            ".popup .controller close": function(e, t) {
+                FM7App.closeModal(".popup")
+            },
+            ".view-main .controller close": function(e, t) {
+                App.mainView.goBack()
+            }
+        }), can.mustache.registerHelper("statusText", function(e) {
+            var t = can.isFunction(e) ? e() : e;
+            switch (t) {
+                case "todo":
+                    return "Pendente";
+                case "inprogress":
+                    return "Em Execução";
+                case "done":
+                    return "Concluida"
+            }
+        }), can.mustache.registerHelper("dateformat", function(e) {
+            var t = can.isFunction(e) ? e() : e;
+            return t.toDateString()
+        }), new AppControl(document, {})
+    }), requirejs.config({
+        paths: {
+            jquery: "../bower_components/jquery/dist/jquery",
+            can: "../bower_components/canjs/amd/can",
+            framework7: "../bower_components/framework7/dist/js/framework7",
+            text: "../bower_components/text/text",
+            "canjs-commons": "app/canjs-commons",
+            mtemplate: "app/canjs-commons/mustachetemplate",
+            basecontroller: "app/canjs-commons/basecontroller",
+            "canjsfm7-plugin": "app/canjsfm7-plugin"
+        },
+        shim: {
+            can: ["jquery"],
+            mtemplate: ["jquery", "can"]
+        }
+    }), define("app", ["app/appcontrol"], function() {});
