@@ -36,6 +36,7 @@
         return jQuery.each(e.match(rnotwhite) || [], function(e, n) {
             t[n] = !0
         }), t
+       
     }
 
     function completed() {
