@@ -1,14 +1,4 @@
-(function(e, t) {
-    typeof module == "object" && typeof module.exports == "object" ? module.exports = e.document ? t(e, !0) : function(e) {
-        if (!e.document) throw new Error("jQuery requires a window with a document");
-        return t(e)
-    } : t(e)
-})(typeof window != "undefined" ? window : this, function(window, noGlobal) {
-    function isArraylike(e) {
-        var t = e.length,
-            n = jQuery.type(e);
-        return n === "function" || jQuery.isWindow(e) ? !1 : e.nodeType === 1 && t ? !0 : n === "array" || t === 0 || typeof t == "number" && t > 0 && t - 1 in e
-    }
+
 
     function winnow(e, t, n) {
         if (jQuery.isFunction(t)) return jQuery.grep(e, function(e, r) {
