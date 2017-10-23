@@ -1646,24 +1646,7 @@
                 }, i[s[0] + "With"] = o.fireWith
             }), r.promise(i), e && e.call(i, i), i
         },
-        when: function(e) {
-            var t = 0,
-                n = slice.call(arguments),
-                r = n.length,
-                i = r !== 1 || e && jQuery.isFunction(e.promise) ? r : 0,
-                s = i === 1 ? e : jQuery.Deferred(),
-                o = function(e, t, n) {
-                    return function(r) {
-                        t[e] = this, n[e] = arguments.length > 1 ? slice.call(arguments) : r, n === u ? s.notifyWith(t, n) : --i || s.resolveWith(t, n)
-                    }
-                },
-                u, a, f;
-            if (r > 1) {
-                u = new Array(r), a = new Array(r), f = new Array(r);
-                for (; t < r; t++) n[t] && jQuery.isFunction(n[t].promise) ? n[t].promise().done(o(t, f, n)).fail(s.reject).progress(o(t, a, u)) : --i
-            }
-            return i || s.resolveWith(f, n), s.promise()
-        }
+        when: 
     });
     var readyList;
     jQuery.fn.ready = function(e) {
